@@ -1,4 +1,4 @@
-2019-07-09 12:35:00,866 ERROR: Exception on /index [GET] [in c:\superpractic\venv\lib\site-packages\flask\app.py:1891]
+2019-07-06 16:18:45,768 ERROR: Exception on /user/susan [GET] [in c:\superpractic\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\superpractic\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\SuperPractic\app\routes.py", line 31, in index
-    return render_template('index.html', title='Home', posts=posts)
+  File "C:\SuperPractic\app\routes.py", line 81, in user
+    return render_template('user.html', user=user, posts=posts)
   File "c:\superpractic\venv\lib\site-packages\flask\templating.py", line 138, in render_template
     ctx.app.jinja_env.get_or_select_template(template_name_or_list),
   File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
@@ -32,8 +32,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\superpractic\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\SuperPractic\app\templates\index.html", line 10, in template
-    {{ form.post(cols=32, rows=4 }}<br>
+  File "C:\SuperPractic\app\templates\user.html", line 15, in template
+    <p><a href="{{ url_for('follow', username=user.username }}">Follow</a></p>
   File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
   File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
@@ -104,9 +104,11 @@ Traceback (most recent call last):
     left = self.parse_pow()
   File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
     left = self.parse_unary()
-  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
-    node = self.parse_primary()
-  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 572, in parse_primary
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 672, in parse_postfix
+    node = self.parse_subscript(node)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 700, in parse_subscript
     next(self.stream)
   File "c:\superpractic\venv\lib\site-packages\jinja2\lexer.py", line 359, in __next__
     self.current = next(self._iter)
@@ -115,16 +117,9 @@ Traceback (most recent call last):
   File "c:\superpractic\venv\lib\site-packages\jinja2\lexer.py", line 690, in tokeniter
     filename)
 jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
-2019-07-09 12:37:53,372 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 12:56:30,540 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 14:07:41,461 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 14:48:08,066 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 14:52:40,293 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 14:52:52,849 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 15:07:41,127 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 15:12:05,118 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 15:12:23,239 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-09 15:12:50,929 ERROR: Exception on /user/susan [GET] [in c:\superpractic\venv\lib\site-packages\flask\app.py:1891]
+2019-07-06 16:19:36,355 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
+2019-07-06 16:21:52,675 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
+2019-07-06 16:22:20,495 ERROR: Exception on /follow/Tom [GET] [in c:\superpractic\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -140,9 +135,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\superpractic\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\SuperPractic\app\routes.py", line 100, in user
-    posts = user.posts.order_by(Post.timestamp,desc()).paginate(
-NameError: name 'desc' is not defined
-2019-07-09 15:21:45,053 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
-2019-07-10 15:33:32,847 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:45]
-2019-07-10 15:49:26,093 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:45]
+  File "C:\SuperPractic\app\routes.py", line 113, in follow
+    return redirect('user', username=username)
+TypeError: redirect() got an unexpected keyword argument 'username'
+2019-07-06 16:25:11,654 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
+2019-07-06 16:31:17,222 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]

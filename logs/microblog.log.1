@@ -1,145 +1,118 @@
-2019-07-02 12:53:01,184 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
-2019-07-02 12:53:29,279 ERROR: Exception on /edit_profile [POST] [in c:\microblog\venv\lib\site-packages\flask\app.py:1780]
+2019-07-09 12:31:13,951 ERROR: Exception on /index [GET] [in c:\superpractic\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
+  File "c:\superpractic\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+  File "c:\superpractic\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\microblog\app\routes.py", line 91, in edit_profile
-    db.session.commit()
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
-    self.transaction.commit()
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 494, in commit
-    self._prepare_impl()
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 473, in _prepare_impl
-    self.session.flush()
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2459, in flush
-    self._flush(objects)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 154, in reraise
-    raise value
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2557, in _flush
-    flush_context.execute()
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
-    uow,
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
-    update,
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
-    statement, multiparams
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1248, in _execute_context
-    e, statement, parameters, cursor, context
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1466, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 399, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+  File "C:\SuperPractic\app\routes.py", line 31, in index
+    return render_template('index.html', title='Home', posts=posts)
+  File "c:\superpractic\venv\lib\site-packages\flask\templating.py", line 138, in render_template
+    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1244, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 550, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('susan', '', 3)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2019-07-02 13:07:21,438 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
-2019-07-02 13:08:24,113 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
-2019-07-02 13:08:45,913 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
-2019-07-02 13:08:54,769 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
-2019-07-02 13:10:28,599 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
-2019-07-02 13:10:37,828 ERROR: Exception on /edit_profile [POST] [in c:\microblog\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\microblog\app\routes.py", line 87, in edit_profile
-    form = EditProfileForm()
-  File "c:\microblog\venv\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'original_username'
-2019-07-02 13:12:33,088 ERROR: Exception on /edit_profile [GET] [in c:\microblog\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\microblog\app\routes.py", line 87, in edit_profile
-    form = EditProfileForm()
-  File "c:\microblog\venv\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'original_username'
-2019-07-02 13:13:18,330 ERROR: Exception on /edit_profile [GET] [in c:\microblog\venv\lib\site-packages\flask\app.py:1780]
-Traceback (most recent call last):
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\microblog\venv\lib\site-packages\flask\_compat.py", line 36, in reraise
-    raise value
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\microblog\venv\lib\site-packages\flask\app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\microblog\app\routes.py", line 87, in edit_profile
-    form = EditProfileForm()
-  File "c:\microblog\venv\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-TypeError: __init__() missing 1 required positional argument: 'original_username'
-2019-07-02 14:33:21,916 INFO: Microblog startup [in C:\microblog\app\__init__.py:43]
+  File "C:\SuperPractic\app\templates\index.html", line 10, in template
+    {{ form.post(cols=32, rows=4 }}<br>
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 212, in parse_if
+    node.body = self.parse_statements(('name:elif', 'name:else',
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
+    args.append(parse())
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 547, in parse_unary
+    node = self.parse_postfix(node)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 676, in parse_postfix
+    node = self.parse_call(node)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 785, in parse_call
+    value = self.parse_expression()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
+    return self.parse_condexpr()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
+    expr1 = self.parse_or()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 450, in parse_or
+    left = self.parse_and()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 459, in parse_and
+    left = self.parse_not()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 470, in parse_not
+    return self.parse_compare()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
+    expr = self.parse_math1()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
+    left = self.parse_concat()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
+    args = [self.parse_math2()]
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
+    left = self.parse_pow()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
+    left = self.parse_unary()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 546, in parse_unary
+    node = self.parse_primary()
+  File "c:\superpractic\venv\lib\site-packages\jinja2\parser.py", line 572, in parse_primary
+    next(self.stream)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\lexer.py", line 359, in __next__
+    self.current = next(self._iter)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\lexer.py", line 562, in wrap
+    for lineno, token, value in stream:
+  File "c:\superpractic\venv\lib\site-packages\jinja2\lexer.py", line 690, in tokeniter
+    filename)
+jinja2.exceptions.TemplateSyntaxError: unexpected '}', expected ')'
+2019-07-09 12:34:35,913 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]

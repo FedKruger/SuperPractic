@@ -1,0 +1,51 @@
+2019-07-06 16:31:25,331 ERROR: Exception on /user/susan [GET] [in c:\superpractic\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\superpractic\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\superpractic\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\SuperPractic\app\routes.py", line 81, in user
+    return render_template('user.html', user=user, posts=posts)
+  File "c:\superpractic\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\superpractic\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\superpractic\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\SuperPractic\app\templates\user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\SuperPractic\app\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\SuperPractic\app\templates\user.html", line 13, in block "content"
+    <p><a href="{{ url_for('редактировать профиль') }}">Edit your profile</a></p>
+  File "c:\superpractic\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\superpractic\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\superpractic\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\superpractic\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\superpractic\venv\lib\site-packages\werkzeug\routing.py", line 2007, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'редактировать профиль'. Did you mean 'edit_profile' instead?
+2019-07-06 16:32:11,809 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
+2019-07-06 16:41:08,958 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
+2019-07-06 16:42:15,355 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
+2019-07-09 12:28:20,848 INFO: Microblog startup [in C:\SuperPractic\app\__init__.py:43]
